@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Langyi Yang | Research CV 2026</title>
+  <title>Langyi Yang | Astronomy Research CV</title>
+  <meta name="description" content="Langyi Yang, final-year Astronomy undergraduate at USTC. Research in AGN variability, DRW model robustness, and reproducible 7-DQ analysis tools." />
   <style>
     :root {
       --primary-blue: #a5ccff;
@@ -58,9 +59,38 @@
     
     .skill-pill { display: inline-block; background: rgba(255,255,255,0.05); border: 1px solid var(--border-color); padding: 3px 10px; border-radius: 20px; font-size: 0.8rem; margin: 0 5px 5px 0; }
 
+    a { color: var(--primary-blue); text-underline-offset: 3px; }
+    a:hover { color: #fff; }
+    a:focus-visible, button:focus-visible { outline: 2px solid var(--primary-blue); outline-offset: 4px; }
+    .contact-info { flex-wrap: wrap; }
+    .main-grid > div { min-width: 0; }
+    .entry-header { flex-wrap: wrap; gap: 4px 12px; }
+    .entry-header time { font-size: 0.85rem; font-weight: 500; }
+    .entry:last-child { margin-bottom: 0; }
+    .project-title { background: rgba(165, 204, 255, 0.08); padding: 10px; border-radius: 8px; margin: 10px 0; font-size: 0.9rem; color: var(--primary-blue); }
+    .entry-note { font-size: 0.85rem; color: #94a3b8; margin: 6px 0; }
+    .entry + .entry { border-top: 1px solid var(--border-color); padding-top: 18px; }
+    code { font-size: 0.9em; overflow-wrap: anywhere; }
+    @media (max-width: 720px) {
+      .main-grid { grid-template-columns: 1fr; }
+      header { align-items: flex-start; flex-direction: column; gap: 18px; padding: 22px; }
+      .contact-info { flex-direction: column; gap: 6px; overflow-wrap: anywhere; }
+      h1 { font-size: 2.2rem; }
+      section { padding: 22px; }
+    }
+
     @media print {
       body { background: #fff !important; color: #000 !important; }
+      @page { size: A4; margin: 14mm; }
       .container { padding: 0; max-width: 100%; }
+      .main-grid { display: block; }
+      section { page-break-inside: auto; break-inside: auto; }
+      .entry { page-break-inside: avoid; break-inside: avoid; }
+      h2 { break-after: avoid; }
+      a, .contact-info, .entry-note, footer { color: #333 !important; }
+      a { text-decoration: none; }
+      .project-title, .project-title strong { color: #111 !important; background: none !important; }
+      .highlight-tag { color: #000 !important; background: none !important; }
       header, section { background: #fff !important; border: 1px solid #ddd !important; backdrop-filter: none !important; box-shadow: none !important; }
       h1, h2, .entry-header, strong { color: #000 !important; }
       .tagline, .entry-sub, li, p { color: #333 !important; }
@@ -75,64 +105,84 @@
     <header>
       <div>
         <h1>Langyi Yang</h1>
-        <p class="tagline">B.S. in Astronomy | Junior at USTC</p>
+        <p class="tagline">Final-year Astronomy Undergraduate | USTC</p>
         <div class="contact-info">
-          <span>📧 dd5320675@mail.ustc.edu.cn</span>
-          <span>📞 +86 13470986159</span>
-          <span>📍 Hefei, Anhui</span>
+          <a href="mailto:dd5320675@mail.ustc.edu.cn">dd5320675@mail.ustc.edu.cn</a>
+          <a href="tel:+8613470986159">+86 13470986159</a>
+          <span>Hefei, Anhui, China</span>
+          <a href="https://github.com/Yangly-kd">GitHub</a>
         </div>
       </div>
-      <button class="no-print" onclick="window.print()" style="cursor:pointer; background: var(--primary-blue); border:none; padding:10px 18px; border-radius:8px; font-weight:bold; color:#050a14;">Export PDF</button>
+      <button type="button" class="no-print" onclick="window.print()" style="cursor:pointer; background: var(--primary-blue); border:none; padding:10px 18px; border-radius:8px; font-weight:bold; color:#050a14;">Print / Save PDF</button>
     </header>
 
-    <div class="main-grid">
+    <main class="main-grid">
       <div class="left-col">
-        <section>
-          <h2>🔭 Research Experience</h2>
-          <div class="entry">
+        <section aria-labelledby="research-heading">
+          <h2 id="research-heading">🔭 Research Experience</h2>
+          <article class="entry">
             <div class="entry-header">
               <span>Undergraduate Research Assistant</span>
-              <span style="color: var(--primary-blue);">2025 – Present</span>
+              <span style="color: var(--primary-blue);"><time datetime="2025">2025</time> – Present</span>
             </div>
-            <div class="entry-sub">Prof. Yongquan Xue's Group | High-Energy Astrophysics, USTC</div>
-            
-            <div style="background: rgba(165, 204, 255, 0.08); padding: 10px; border-radius: 8px; margin: 10px 0;">
-              <strong style="font-size: 0.9rem; color: var(--primary-blue);">Project: AGN Timing Analysis & PSD Simulation</strong>
+            <div class="entry-sub">University of Science and Technology of China</div>
+            <p class="entry-note">Supervisor: Prof. Yongquan Xue · Co-supervisor: Ruisong Xia (<span lang="zh-CN">夏瑞崧</span>)</p>
+            <div class="project-title">
+              <strong>Project / Thesis Research: DRW Model Robustness in AGN Optical Variability</strong>
             </div>
-            
             <ul>
-              <li><strong>Light Curve Simulation:</strong> Utilized the <strong>Stingray</strong> timing package to simulate high-fidelity AGN light curves across various <strong>Power Spectral Density (PSD)</strong> models.</li>
-              <li><strong>Model Evaluation:</strong> Investigated the statistical robustness of the Damped Random Walk (DRW) model by analyzing simulated noise leakage and red-noise effects.</li>
-              <li><strong>Methodology:</strong> Evaluating the reliability of $M_{BH}$ estimation techniques in preparation for upcoming wide-field time-domain surveys.</li>
+              <li><strong>Research question:</strong> Test how departures from a damped random walk (DRW) affect recovered variability timescales (τ) and inferred correlations between τ and black hole mass (M<sub>BH</sub>).</li>
+              <li><strong>Implemented workflow:</strong> Generated mock light curves under multiple power spectral density (PSD) assumptions, fitted them with a common DRW model, and compared input and recovered timescales and scaling-relation slopes.</li>
+              <li><strong>Sampling comparisons:</strong> Tested fixed sampling and cadence scaled to the input timescale; carried out a DRW control test with real-survey sampling to distinguish sampling effects from model misspecification.</li>
+              <li><strong>Ongoing extension:</strong> Extending the pipeline to systematic high- and low-frequency PSD-slope scans and further tests of the robustness of physical correlations.</li>
             </ul>
-          </div>
+          </article>
+
+          <article class="entry">
+            <div class="entry-header">
+              <span>Visiting Student · 7-DQ Project</span>
+              <span style="color: var(--primary-blue);"><time datetime="2026-07">Jul</time> – <time datetime="2026-08">Aug 2026</time></span>
+            </div>
+            <div class="entry-sub">Royal Observatory, University of Edinburgh</div>
+            <p class="entry-note">Supervisors: Andy Lawrence and James Aird · Completed</p>
+            <div class="project-title">
+              <strong>Project: Analysis Tools for Seven Decades of Quasar Photometry (7-DQ)</strong>
+            </div>
+            <ul>
+              <li><strong>Delivered analysis tools:</strong> Built six interactive Jupyter notebooks for light-curve inspection, single-source and ensemble structure functions (SFs), coordinate-to-source matching, and time-lag pair-file generation.</li>
+              <li><strong>Reusable architecture:</strong> Separated notebook entry points, six <code>workhorse</code> interface modules, and the shared <code>agn_utils.py</code> analysis module.</li>
+              <li><strong>Data and outputs:</strong> Implemented photometric-noise subtraction, CSV/PNG outputs, and chunked reading and source filtering of precomputed pair data for larger ensembles.</li>
+              <li><strong>Project handover:</strong> Adapted and tested the workflow on the Cuillin server; delivered the code and an English technical report, with demonstrations to both supervisors.</li>
+            </ul>
+          </article>
         </section>
 
-        <section>
-          <h2>🎓 Education</h2>
+        <section aria-labelledby="education-heading">
+          <h2 id="education-heading">🎓 Education</h2>
           <div class="entry">
             <div class="entry-header">University of Science and Technology of China</div>
-            <div class="entry-sub">Bachelor of Science in Astronomy (Class of 2027)</div>
+            <div class="entry-sub">B.Sc. in Astronomy · Expected June 2027</div>
+            <p class="entry-note"><time datetime="2023-09">September 2023</time> – Present · Hefei, China</p>
             <ul>
-              <li><strong>Honors Program:</strong> Selected for the <strong>Yan Jici Physics Talent Class</strong> (2023-2024), a highly selective national program for top physics students.</li>
-              <li><strong>Performance:</strong> Demonstrated a <strong>significant upward trend</strong> in advanced physics and major-specific courses during Junior year.</li>
-              <li><strong>Cumulative Score:</strong> 81.37 / 100 (Top 50% in major).</li>
+              <li><strong>Cumulative score:</strong> 81.72 / 100 · <strong>GPA:</strong> 3.17 / 4.3.</li>
+              <li><strong>Relevant coursework:</strong> Stellar Physics, Computational Physics, Mathematical Methods for Physics, Probability and Mathematical Statistics.</li>
+              <li><strong>English:</strong> CET-6, 588 / 710; research discussions, demonstrations, and technical reporting in English during the Edinburgh project.</li>
             </ul>
           </div>
         </section>
 
-        <section>
-          <h2>🏆 Honors & Leadership</h2>
+        <section aria-labelledby="honors-heading">
+          <h2 id="honors-heading">🏆 Honors &amp; Leadership</h2>
           <div class="entry">
             <div class="entry-header">
-              <span>CUPT - USTC First Prize</span>
+              <span>CUPT · USTC First Prize · <time datetime="2024">2024</time></span>
               <span class="highlight-tag">Team Captain</span>
             </div>
-            <p style="font-size:0.85rem; margin-top:5px; color:#94a3b8;">Led a 5-member team to solve 17 open-ended physics problems; managed the end-to-end pipeline from theoretical derivation to experimental validation.</p>
+            <p class="entry-note">Led a five-member team in the USTC competition, coordinating theoretical analysis, modeling, and experimental validation of 17 open-ended physics problems.</p>
           </div>
           <div class="entry">
             <div class="entry-header">
-              <span>Outstanding Freshman Scholarship</span>
+              <span>Outstanding Freshman Scholarship · <time datetime="2023">2023</time></span>
               <span class="highlight-tag">Gold Award</span>
             </div>
           </div>
@@ -140,45 +190,57 @@
       </div>
 
       <div class="right-col">
-        <section>
-          <h2>💻 Technical Stack</h2>
+        <section aria-labelledby="skills-heading">
+          <h2 id="skills-heading">💻 Technical Skills</h2>
           <div style="margin-top:10px;">
-            <div style="font-size:0.8rem; color:var(--primary-blue); margin-bottom:5px;">Programming</div>
-            <span class="skill-pill">Python (Proficient)</span>
-            <span class="skill-pill">Stingray (Timing)</span>
-            <span class="skill-pill">Astropy / NumPy</span>
+            <div class="entry-sub">Scientific Computing</div>
+            <span class="skill-pill">Python</span>
+            <span class="skill-pill">NumPy / SciPy</span>
+            <span class="skill-pill">pandas / Matplotlib</span>
+            <div class="entry-sub" style="margin-top:15px;">Tools &amp; Workflow</div>
+            <span class="skill-pill">Jupyter / ipywidgets</span>
+            <span class="skill-pill">Git</span>
+            <span class="skill-pill">Linux / SSH</span>
             <span class="skill-pill">LaTeX / BibTeX</span>
-            
-            <div style="font-size:0.8rem; color:var(--primary-blue); margin:15px 0 5px;">Research Focus</div>
-            <span class="skill-pill">PSD Analysis</span>
-            <span class="skill-pill">Stochastic Modeling</span>
-            <span class="skill-pill">Time-Series Analysis</span>
+            <div class="entry-sub" style="margin-top:15px;">Research Methods</div>
+            <span class="skill-pill">DRW / PSD Modeling</span>
+            <span class="skill-pill">Time-Series Simulation</span>
+            <span class="skill-pill">Parameter Recovery</span>
+            <span class="skill-pill">Structure Functions</span>
+            <span class="skill-pill">Statistical Analysis</span>
           </div>
         </section>
 
-        <section>
-          <h2>🌌 Strategic Thinking</h2>
+        <section aria-labelledby="interests-heading">
+          <h2 id="interests-heading">🌌 Interests</h2>
           <div class="entry">
-            <div style="font-weight: bold; color: #fff; font-size:0.9rem;">Go (Weiqi) - Amateur 5-Dan</div>
-            <p style="font-size: 0.8rem; color: #94a3b8; margin: 4px 0;">Advanced skills in strategic pattern recognition and complex calculation.</p>
+            <div style="font-weight: bold; color: #fff; font-size:0.9rem;">AGN &amp; Time-Domain Astronomy</div>
+            <p class="entry-note">Quasar optical variability, stochastic models, and the interpretation of variability–physical parameter correlations.</p>
           </div>
           <div class="entry">
-            <div style="font-weight: bold; color: #fff; font-size:0.9rem;">Music & Composition</div>
-            <p style="font-size: 0.8rem; color: #94a3b8; margin: 4px 0;">Award-winning guitarist; focus on creative arrangement and logical composition.</p>
+            <div style="font-weight: bold; color: #fff; font-size:0.9rem;">Music &amp; Sound</div>
+            <p class="entry-note">Guitar, music arrangement, and exploring synthesis and sound creation.</p>
+          </div>
+          <div class="entry">
+            <div style="font-weight: bold; color: #fff; font-size:0.9rem;">Go (Weiqi)</div>
+            <p class="entry-note">A personal interest in strategic play.</p>
           </div>
         </section>
 
-        <section style="background: rgba(165, 204, 255, 0.03); border: 1px dashed var(--primary-blue);">
-          <h2>📝 Candidate Pitch</h2>
+        <section aria-labelledby="profile-heading" style="background: rgba(165, 204, 255, 0.03); border: 1px dashed var(--primary-blue);">
+          <h2 id="profile-heading">📝 Research Profile</h2>
           <p style="font-size:0.85rem; color:#cbd5e1; margin:0;">
-            Junior student at USTC specializing in <strong>AGN time-domain astrophysics</strong>. Proven leadership in physical modeling (CUPT Captain) and technical proficiency in <strong>Stingray-based simulation</strong>. Seeking 2026 summer research.
+            Final-year Astronomy undergraduate at USTC working on <strong>AGN optical variability</strong>.
+            My experience combines simulation-based tests of <strong>DRW model robustness</strong> with
+            delivered <strong>7-DQ analysis tools</strong> developed during a visiting-student project at Edinburgh.
+            Interested in research collaboration at the intersection of time-domain astronomy, statistical modeling, and reproducible scientific software.
           </p>
         </section>
       </div>
-    </div>
+    </main>
 
-    <footer style="text-align: center; margin-top: 20px; color: #64748b; font-size: 0.7rem;">
-      &copy; 2026 Langyi Yang | Last Updated: March 17, 2026
+    <footer style="text-align: center; margin-top: 20px; color: #94a3b8; font-size: 0.7rem;">
+      &copy; 2026 Langyi Yang | Last updated: <time datetime="2026-11-02">November 2, 2026</time>
     </footer>
   </div>
 </body>
